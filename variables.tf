@@ -19,9 +19,15 @@ variable "subnet_name" {
 }
 
 variable "is_public" {
-  description = "Whether the subnet is public (assigns public IPs)"
+  description = "Whether the subnet is public"
   type        = bool
   default     = false
+}
+
+variable "public_route_table_id" {
+  description = "Public route table ID for public subnet association"
+  type        = string
+  default     = null
 }
 
 variable "tags" {
