@@ -9,13 +9,8 @@ resource "aws_subnet" "this" {
   })
 }
 
-
-# ─────────────────────────────────────────────
-# PUBLIC ROUTE TABLE ASSOCIATION
-# ─────────────────────────────────────────────
-
 resource "aws_route_table_association" "public" {
-  count = var.is_public && var.public_route_table_id != null ? 1 : 0
+  count = var.is_public ? 1 : 0
 
   subnet_id      = aws_subnet.this.id
   route_table_id = var.public_route_table_id
